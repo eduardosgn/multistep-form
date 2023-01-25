@@ -41,7 +41,12 @@ const OptionButton = styled.button`
     border: 1px solid ${ light_gray };
     border-radius: 8px;
     padding: 2.2rem;
-    transition: all .s2 ease-in-out;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        border: 1px solid ${ purplish_blue };
+        background: ${ magnolia };
+    }
 
     &:focus {
         border: 1px solid ${ purplish_blue };
