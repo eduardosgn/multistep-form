@@ -111,10 +111,10 @@ export default function Form() {
 
             <FormSection>
                 <AnimatePresence initial={ false } mode={ 'wait' }>
-                    { step === 1 && <FormStep1 key={1} /> }
-                    { step === 2 && <FormStep2 key={2} /> }
-                    { step === 3 && <FormStep3 key={3} /> }
-                    { step === 4 && <FormStep4 key={4} /> }
+                    { step === 1 && <FormStep1 key={step} /> }
+                    { step === 2 && <FormStep2 key={step} /> }
+                    { step === 3 && <FormStep3 key={step} /> }
+                    { step === 4 && <FormStep4 key={step} /> }
                 </AnimatePresence>
 
                 <ButtonsContainer>
