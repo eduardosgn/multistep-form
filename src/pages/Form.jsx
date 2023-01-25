@@ -31,9 +31,9 @@ const Container = styled.main`
     border-radius: 8px;
     padding: 1rem;
     display: flex;
-    min-width: 65%;
+    /* min-width: 65%; */
 
-    @media (max-width: 1400px) {
+    /* @media (max-width: 1400px) {
         min-width: 75%;
     }
 
@@ -44,24 +44,23 @@ const Container = styled.main`
     @media (max-width: 800px) {
         min-width: 95%;
         margin: 0 10px;
-    }
+    } */
 `;
 
 const Section = styled.section``;
 
 const FormSection = styled.section`
-    width: 80%;
+    min-width: 43.75rem;
+    padding: 0 7rem;
 `;
 
 const ButtonsContainer = styled.div`
     display: flex;
-    width: 87%;
     justify-content: space-between;
     margin-bottom: 3rem;
 
     @media (max-width: 800px) {
         margin-bottom: 2.5rem;
-        width: 100%;
     }
 `;
 
@@ -125,11 +124,17 @@ export default function Form() {
                 </AnimatePresence>
 
                 <ButtonsContainer>
-                    <PrevButton onClick={handlePrevFormStep} style={{ display: step === 1 && 'none' }}>
+                    <PrevButton 
+                        onClick={handlePrevFormStep} 
+                        style={{ display: step === 1 && 'none' }}
+                    >
                         Go back
                     </PrevButton>
 
-                    <NextButton onClick={handleNextFormStep} style={{ display: step === 4 && 'none' }}>
+                    <NextButton 
+                        onClick={handleNextFormStep} 
+                        style={{ display: step === 4 && 'none' }}
+                    >
                         Next step
                     </NextButton>
                 </ButtonsContainer>

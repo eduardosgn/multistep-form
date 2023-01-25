@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Title } from '../../style/Title';
 import { Subtitle } from '../../style/Subtitle';
 import * as pallete from '../../style/StyledVars.js';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import FormInfoContext from '../../../context/form-info/FormInfoContext';
 import PhoneInput from './PhoneInput';
 
@@ -19,10 +19,11 @@ const Container = styled.section`
     margin-top: 2rem;
 `;
 
+const Form = styled.form``;
+
 const FormGroup = styled.div`
     display: flex;
     flex-direction: column;
-    width: 87%;
     margin-bottom: 2rem;
 
     &:last-child {
@@ -56,6 +57,11 @@ export default function FormStep1() {
 
     const onChangePhoneInput = e => dispatch({ type: 'PHONE_INPUT', payload: e.target.value });
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        dispatch({ type: 'GET_INFO_STEP_1', payload: e.target.value })
+    };
+
     return (
         <m.section
             initial={{ opacity: 0, y: '5px' }}
@@ -68,33 +74,38 @@ export default function FormStep1() {
 
                 <Subtitle>Please provide your name, e-mail address and phone number.</Subtitle>
 
-                <FormGroup>
-                    <label htmlFor="name">Name</label>
-                    <input 
-                        type="text"
-                        placeholder='e.g. Eduardo Nascimento'
-                        value={name}
-                        onChange={onChangeNameInput}
-                    />
-                </FormGroup>
+                <Form>
+                    <FormGroup>
+                        <label htmlFor="name">Name</label>
+                        <input 
+                            type="text"
+                            placeholder='e.g. Eduardo Nascimento'
+                            value={name}
+                            onChange={onChangeNameInput}
+                            required
+                        />
+                    </FormGroup>
 
-                <FormGroup>
-                    <label htmlFor="email">E-mail</label>
-                    <input 
-                        type="email" 
-                        placeholder='e.g. eduardosgn19@gmail.com'
-                        value={email}
-                        onChange={onChangeEmailInput}
-                    />
-                </FormGroup>
+                    <FormGroup>
+                        <label htmlFor="email">E-mail</label>
+                        <input 
+                            type="email" 
+                            placeholder='e.g. eduardosgn19@gmail.com'
+                            value={email}
+                            onChange={onChangeEmailInput}
+                            required
+                        />
+                    </FormGroup>
 
-                <FormGroup>
-                    <label htmlFor="phonenumber">Phone Number</label>
-                    <PhoneInput 
-                        value={phoneNumber} 
-                        onChange={onChangePhoneInput}
-                    />
-                </FormGroup>
+                    <FormGroup>
+                        <label htmlFor="phonenumber">Phone Number</label>
+                        <PhoneInput 
+                            value={phoneNumber} 
+                            onChange={onChangePhoneInput}
+                            required
+                        />
+                    </FormGroup>
+                </Form>
             </Container>
         </m.section>
     );

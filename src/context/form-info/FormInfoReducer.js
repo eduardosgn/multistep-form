@@ -1,6 +1,6 @@
 const infoReducer = (state, action) => {
     switch(action.type) {
-        case 'GET_INFO':
+        case 'GET_INFO_STEP_1':
             return {
                 ...state,
                 name: action.payload,

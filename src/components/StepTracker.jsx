@@ -29,7 +29,6 @@ export default function StepTracker() {
         background-color: ${ purplish_blue };
         border-radius: 8px;
         padding: 2.5rem;
-        margin-right: 6rem;
         
         @media (max-width: 1000px) {
             display: none;
@@ -57,6 +56,7 @@ export default function StepTracker() {
 
     const StepNumber = styled.div`
         display: flex;
+        font-weight: bold;
         align-items: center;
         justify-content: center;
         width: 40px;
