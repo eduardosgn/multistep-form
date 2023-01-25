@@ -24,9 +24,10 @@ export default function StepTracker() {
     const { step } = useContext(FormStepsContext);
 
     const Container = styled.section`
-        min-width: 4rem;
+        width: 20rem;
         min-height: 100%;
-        background: ${ purplish_blue };
+        background-color: ${ purplish_blue };
+        background: url('../assets/images/bg-sidebar-desktop.svg') no-repeat center cover;
         border-radius: 8px;
         padding: 2.5rem;
         margin-right: 6rem;

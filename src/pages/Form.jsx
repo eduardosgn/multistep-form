@@ -27,11 +27,11 @@ const {
 
 const Container = styled.main`
     margin: 0 auto;
-    min-width: 65%;
     background: ${ white };
     border-radius: 8px;
     padding: 1rem;
     display: flex;
+    min-width: 65%;
 
     @media (max-width: 1400px) {
         min-width: 75%;
