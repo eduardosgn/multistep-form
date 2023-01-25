@@ -1,6 +1,7 @@
 import Form from "./pages/Form";
 import styled from "styled-components";
 import { FormStepsProvider } from "./context/form-steps/FormStepsContext";
+import { FormInfoProvider } from "./context/form-info/FormInfoContext";
 
 const Container = styled.div`
     min-width: 100vw;
@@ -13,7 +14,9 @@ function App() {
     return (
         <FormStepsProvider>
             <Container>
-                <Form />
+                <FormInfoProvider>
+                    <Form />
+                </FormInfoProvider>
             </Container>
         </FormStepsProvider>
     );

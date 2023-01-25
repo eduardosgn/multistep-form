@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import * as pallete from '../components/style/StyledVars.js';
 import StepTracker from '../components/StepTracker.jsx';
-import FormStep1 from '../components/formSteps/FormStep1';
+import FormStep1 from '../components/formSteps/FormStep1/FormStep1.jsx';
 import FormStep2 from '../components/formSteps/FormStep2';
 import FormStep3 from '../components/formSteps/FormStep3';
 import FormStep4 from '../components/formSteps/FormStep4';
@@ -48,14 +48,21 @@ const Container = styled.main`
 `;
 
 const Section = styled.section``;
+
 const FormSection = styled.section`
     width: 80%;
 `;
 
 const ButtonsContainer = styled.div`
     display: flex;
-    width: 80%;
+    width: 87%;
     justify-content: space-between;
+    margin-bottom: 3rem;
+
+    @media (max-width: 800px) {
+        margin-bottom: 2.5rem;
+        width: 100%;
+    }
 `;
 
 const NextButton = styled.button`

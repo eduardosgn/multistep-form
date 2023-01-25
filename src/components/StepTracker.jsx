@@ -1,8 +1,8 @@
-import { motion as m } from 'framer-motion';
 import { useContext } from 'react';
 import FormStepsContext from '../context/form-steps/FormStepsContext.jsx';
 import styled from 'styled-components';
 import * as pallete from './style/StyledVars.js';
+import bgDesktop from '../assets/images/bg-sidebar-desktop.svg';
 
 const {
     marine_blue,
@@ -27,7 +27,6 @@ export default function StepTracker() {
         width: 20rem;
         min-height: 100%;
         background-color: ${ purplish_blue };
-        background: url('../assets/images/bg-sidebar-desktop.svg') no-repeat center cover;
         border-radius: 8px;
         padding: 2.5rem;
         margin-right: 6rem;
@@ -41,7 +40,15 @@ export default function StepTracker() {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        margin: 60px 0;
+        margin: 50px 0;
+
+        &:first-child {
+            margin: 0 0 50px 0;
+        }
+
+        &:last-child {
+            margin: 0 0 180px 0;
+        }
     `;
 
     const StepTextContainer = styled.div`
@@ -74,7 +81,13 @@ export default function StepTracker() {
     `;
 
     return (
-        <Container>
+        <Container style={{
+                backgroundImage: `url('${bgDesktop}')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '22rem',
+                backgroundPosition: 'bottom left'
+            }}
+        >
             <StepContainer>
                 <StepNumber textColor={ step === 1 ? marine_blue : light_blue } bgColor={ step === 1 && light_blue }>
                     1
