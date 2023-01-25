@@ -31,20 +31,6 @@ const Container = styled.main`
     border-radius: 8px;
     padding: 1rem;
     display: flex;
-    /* min-width: 65%; */
-
-    /* @media (max-width: 1400px) {
-        min-width: 75%;
-    }
-
-    @media (max-width: 1200px) {
-        min-width: 85%;
-    }
-
-    @media (max-width: 800px) {
-        min-width: 95%;
-        margin: 0 10px;
-    } */
 `;
 
 const Section = styled.section``;
@@ -52,6 +38,11 @@ const Section = styled.section``;
 const FormSection = styled.section`
     min-width: 43.75rem;
     padding: 0 7rem;
+
+    @media (max-width: 900px) {
+        min-width: 15rem;
+        padding: 0;
+    }
 `;
 
 const ButtonsContainer = styled.div`
