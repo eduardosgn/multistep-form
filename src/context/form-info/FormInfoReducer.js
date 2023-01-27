@@ -26,11 +26,13 @@ const infoReducer = (state, action) => {
             return {
                 ...state,
                 monthly: {
+                    setMonthly: true,
                     arc: true,
                     adv: false,
                     pro: false
                 },
                 yearly: {
+                    setYearly: false,
                     arc: false,
                     adv: false,
                     pro: false
@@ -40,11 +42,13 @@ const infoReducer = (state, action) => {
             return {
                 ...state,
                 monthly: {
+                    setMonthly: true,
                     arc: false,
                     adv: true,
                     pro: false
                 },
                 yearly: {
+                    setYearly: false,
                     arc: false,
                     adv: false,
                     pro: false
@@ -54,11 +58,13 @@ const infoReducer = (state, action) => {
             return {
                 ...state,
                 monthly: {
+                    setMonthly: true,
                     arc: false,
                     adv: false,
                     pro: true
                 },
                 yearly: {
+                    setYearly: false,
                     arc: false,
                     adv: false,
                     pro: false
@@ -68,11 +74,13 @@ const infoReducer = (state, action) => {
             return {
                 ...state,
                 yearly: {
+                    setYearly: true,
                     arc: true,
                     adv: false,
                     pro: false
                 },
                 monthly: {
+                    setMonthly: false,
                     arc: false,
                     adv: false,
                     pro: false
@@ -82,11 +90,13 @@ const infoReducer = (state, action) => {
             return {
                 ...state,
                 yearly: {
+                    setYearly: true,
                     arc: false,
                     adv: true,
                     pro: false
                 },
                 monthly: {
+                    setMonthly: false,
                     arc: false,
                     adv: false,
                     pro: false
@@ -96,28 +106,37 @@ const infoReducer = (state, action) => {
             return {
                 ...state,
                 yearly: {
+                    setYearly: true,
                     arc: false,
                     adv: false,
                     pro: true
                 },
                 monthly: {
+                    setMonthly: false,
                     arc: false,
                     adv: false,
                     pro: false
                 }
             }
-        case 'RESET_PLAN_VALUES':
+        case 'ADD_ONLINE_SERVICE_MONTHLY':
             return {
                 ...state,
-                monthly: {
-                    arc: false,
-                    adv: false,
-                    pro: false
-                },
-                yearly: {
-                    arc: false,
-                    adv: false,
-                    pro: false
+                addOnsMonthly: {
+                    onlineService: true,
+                }
+            }
+        case 'ADD_LARGER_STORAGE_MONTHLY':
+            return {
+                ...state,
+                addOnsMonthly: {
+                    largerStorage: true
+                }
+            }
+        case 'ADD_COSTOM_PROFILE_MONTHLY':
+            return {
+                ...state,
+                addOnsMonthly: {
+                    customizableProfile: true
                 }
             }
         default: 

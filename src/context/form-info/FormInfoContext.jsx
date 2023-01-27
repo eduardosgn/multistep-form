@@ -9,14 +9,21 @@ export const FormInfoProvider = ({ children }) => {
         email: '',
         phoneNumber: '',
         monthly: {
+            setMonthly: false,
             arc: false,
             adv: false,
             pro: false,
         },
         yearly: {
+            setYearly: false,
             arc: false,
             adv: false,
             pro: false
+        },
+        addOnsMonthly: {
+            onlineService: false,
+            largerStorage: false,
+            customizableProfile: false
         }
     };
 
