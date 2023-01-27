@@ -29,6 +29,11 @@ const infoReducer = (state, action) => {
                     arc: true,
                     adv: false,
                     pro: false
+                },
+                yearly: {
+                    arc: false,
+                    adv: false,
+                    pro: false
                 }
             }
         case 'ADVANCED_MONTH':
@@ -37,6 +42,11 @@ const infoReducer = (state, action) => {
                 monthly: {
                     arc: false,
                     adv: true,
+                    pro: false
+                },
+                yearly: {
+                    arc: false,
+                    adv: false,
                     pro: false
                 }
             }
@@ -47,6 +57,11 @@ const infoReducer = (state, action) => {
                     arc: false,
                     adv: false,
                     pro: true
+                },
+                yearly: {
+                    arc: false,
+                    adv: false,
+                    pro: false
                 }
             }
         case 'ARCADE_YEAR':
@@ -54,6 +69,11 @@ const infoReducer = (state, action) => {
                 ...state,
                 yearly: {
                     arc: true,
+                    adv: false,
+                    pro: false
+                },
+                monthly: {
+                    arc: false,
                     adv: false,
                     pro: false
                 }
@@ -65,6 +85,11 @@ const infoReducer = (state, action) => {
                     arc: false,
                     adv: true,
                     pro: false
+                },
+                monthly: {
+                    arc: false,
+                    adv: false,
+                    pro: false
                 }
             }
         case 'PRO_YEAR':
@@ -74,6 +99,11 @@ const infoReducer = (state, action) => {
                     arc: false,
                     adv: false,
                     pro: true
+                },
+                monthly: {
+                    arc: false,
+                    adv: false,
+                    pro: false
                 }
             }
         case 'RESET_PLAN_VALUES':
@@ -91,7 +121,7 @@ const infoReducer = (state, action) => {
                 }
             }
         default: 
-            return state
+            return state;
     };
 };
 
