@@ -22,6 +22,74 @@ const infoReducer = (state, action) => {
                 ...state,
                 phoneNumber: action.payload
             }
+        case 'ARCADE_MONTH':
+            return {
+                ...state,
+                monthly: {
+                    arc: true,
+                    adv: false,
+                    pro: false
+                }
+            }
+        case 'ADVANCED_MONTH':
+            return {
+                ...state,
+                monthly: {
+                    arc: false,
+                    adv: true,
+                    pro: false
+                }
+            }
+        case 'PRO_MONTH':
+            return {
+                ...state,
+                monthly: {
+                    arc: false,
+                    adv: false,
+                    pro: true
+                }
+            }
+        case 'ARCADE_YEAR':
+            return {
+                ...state,
+                yearly: {
+                    arc: true,
+                    adv: false,
+                    pro: false
+                }
+            }
+        case 'ADVANCED_YEAR':
+            return {
+                ...state,
+                yearly: {
+                    arc: false,
+                    adv: true,
+                    pro: false
+                }
+            }
+        case 'PRO_YEAR':
+            return {
+                ...state,
+                yearly: {
+                    arc: false,
+                    adv: false,
+                    pro: true
+                }
+            }
+        case 'RESET_PLAN_VALUES':
+            return {
+                ...state,
+                monthly: {
+                    arc: false,
+                    adv: false,
+                    pro: false
+                },
+                yearly: {
+                    arc: false,
+                    adv: false,
+                    pro: false
+                }
+            }
         default: 
             return state
     };

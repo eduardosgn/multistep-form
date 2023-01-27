@@ -19,8 +19,6 @@ const Container = styled.section`
     margin-top: 2rem;
 `;
 
-const Form = styled.form``;
-
 const FormGroup = styled.div`
     display: flex;
     flex-direction: column;
@@ -74,38 +72,36 @@ export default function FormStep1() {
 
                 <Subtitle>Please provide your name, e-mail address and phone number.</Subtitle>
 
-                <Form>
-                    <FormGroup>
-                        <label htmlFor="name">Name</label>
-                        <input 
-                            type="text"
-                            placeholder='e.g. Eduardo Nascimento'
-                            value={name}
-                            onChange={onChangeNameInput}
-                            required
-                        />
-                    </FormGroup>
+                <FormGroup>
+                    <label htmlFor="name">Name</label>
+                    <input 
+                        type="text"
+                        placeholder='e.g. Eduardo Nascimento'
+                        value={name}
+                        onChange={onChangeNameInput}
+                        required
+                    />
+                </FormGroup>
 
-                    <FormGroup>
-                        <label htmlFor="email">E-mail</label>
-                        <input 
-                            type="email" 
-                            placeholder='e.g. eduardosgn19@gmail.com'
-                            value={email}
-                            onChange={onChangeEmailInput}
-                            required
-                        />
-                    </FormGroup>
+                <FormGroup>
+                    <label htmlFor="email">E-mail</label>
+                    <input 
+                        type="email" 
+                        placeholder='e.g. eduardosgn19@gmail.com'
+                        value={email}
+                        onChange={onChangeEmailInput}
+                        required
+                    />
+                </FormGroup>
 
-                    <FormGroup>
-                        <label htmlFor="phonenumber">Phone Number</label>
-                        <PhoneInput 
-                            value={phoneNumber} 
-                            onChange={onChangePhoneInput}
-                            required
-                        />
-                    </FormGroup>
-                </Form>
+                <FormGroup>
+                    <label htmlFor="phonenumber">Phone Number</label>
+                    <PhoneInput 
+                        value={phoneNumber} 
+                        onChange={onChangePhoneInput}
+                        required
+                    />
+                </FormGroup>
             </Container>
         </m.section>
     );
