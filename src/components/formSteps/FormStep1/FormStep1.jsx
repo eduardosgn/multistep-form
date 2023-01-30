@@ -55,11 +55,6 @@ export default function FormStep1() {
 
     const onChangePhoneInput = e => dispatch({ type: 'PHONE_INPUT', payload: e.target.value });
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        dispatch({ type: 'GET_INFO_STEP_1', payload: e.target.value })
-    };
-
     return (
         <m.section
             initial={{ opacity: 0, y: '5px' }}

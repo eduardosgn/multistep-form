@@ -5,9 +5,10 @@ import * as pallete from '../components/style/StyledVars.js';
 import StepTracker from '../components/StepTracker.jsx';
 import FormStep1 from '../components/formSteps/FormStep1/FormStep1';
 import FormStep2 from '../components/formSteps/FormStep2/FormStep2';
-import FormStep3 from '../components/formSteps/FormStep3';
+import FormStep3 from '../components/formSteps/FormStep3/FormStep3.jsx';
 import FormStep4 from '../components/formSteps/FormStep4';
 import FormStepsContext from '../context/form-steps/FormStepsContext.jsx';
+import FormInfoContext from '../context/form-info/FormInfoContext.jsx';
 
 const {
     marine_blue,
@@ -67,8 +68,8 @@ const NextButton = styled.button`
     transition: all .1s ease-in-out;
 
     &:hover {
-        background: ${ purplish_blue };
-        border: 1px solid ${ purplish_blue };
+        background: ${ props => props.btnBgColorOnHover };
+        border: 1px solid ${ props => props.btnBgColorOnHover };
     }
 `;
 
@@ -91,6 +92,7 @@ const PrevButton = styled.button`
 
 export default function Form() {
     const { step, dispatch } = useContext(FormStepsContext);
+    const { name } = useContext(FormInfoContext);
 
     function handleNextFormStep() {
         dispatch({ type: `STEP_${ step + 1 }` });
@@ -124,7 +126,13 @@ export default function Form() {
 
                     <NextButton 
                         onClick={handleNextFormStep} 
-                        style={{ display: step === 4 && 'none' }}
+                        style={{
+                            display: step === 4 && 'none', 
+                            cursor: name === '' ? 'not-allowed' : 'pointer', 
+                            opacity: name === '' ? '0.5' : '1'
+                        }}
+                        disabled={ name === '' ? true : false }
+                        btnBgColorOnHover={ name === '' ? marine_blue : purplish_blue }
                     >
                         Next step
                     </NextButton>

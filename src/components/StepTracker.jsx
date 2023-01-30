@@ -20,65 +20,65 @@ const {
     white
 } = pallete.colors.neutral;
 
+const Container = styled.section`
+    width: 20rem;
+    min-height: 100%;
+    background-color: ${ purplish_blue };
+    border-radius: 8px;
+    padding: 2.5rem;
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
+`;
+
+const StepContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 50px 0;
+
+    &:first-child {
+        margin: 0 0 50px 0;
+    }
+
+    &:last-child {
+        margin: 0 0 180px 0;
+    }
+`;
+
+const StepTextContainer = styled.div`
+    margin-left: .6rem;
+`;
+
+const StepNumber = styled.div`
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 1rem;
+    border-radius: 100px;
+    border: 1px solid ${ light_blue };
+    color: ${ props => props.textColor };
+    background: ${ props => props.bgColor };
+`;
+
+const StepText = styled.p`
+    color: ${ light_blue };
+    font-size: 14px;
+    letter-spacing: 1px;
+`;
+
+const StepTitle = styled.p`
+    color: ${ alabaster };
+    font-weight: bold;
+    letter-spacing: 1px;
+`;
+
 export default function StepTracker() {
     const { step } = useContext(FormStepsContext);
-
-    const Container = styled.section`
-        width: 20rem;
-        min-height: 100%;
-        background-color: ${ purplish_blue };
-        border-radius: 8px;
-        padding: 2.5rem;
-        
-        @media (max-width: 1000px) {
-            display: none;
-        }
-    `;
-
-    const StepContainer = styled.div`
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin: 50px 0;
-
-        &:first-child {
-            margin: 0 0 50px 0;
-        }
-
-        &:last-child {
-            margin: 0 0 180px 0;
-        }
-    `;
-
-    const StepTextContainer = styled.div`
-        margin-left: .6rem;
-    `;
-
-    const StepNumber = styled.div`
-        display: flex;
-        font-weight: bold;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        padding: 1rem;
-        border-radius: 100px;
-        border: 1px solid ${ light_blue };
-        color: ${ props => props.textColor };
-        background: ${ props => props.bgColor };
-    `;
-
-    const StepText = styled.p`
-        color: ${ light_blue };
-        font-size: 14px;
-        letter-spacing: 1px;
-    `;
-
-    const StepTitle = styled.p`
-        color: ${ alabaster };
-        font-weight: bold;
-        letter-spacing: 1px;
-    `;
 
     return (
         <Container style={{

@@ -118,27 +118,6 @@ const infoReducer = (state, action) => {
                     pro: false
                 }
             }
-        case 'ADD_ONLINE_SERVICE_MONTHLY':
-            return {
-                ...state,
-                addOnsMonthly: {
-                    onlineService: true,
-                }
-            }
-        case 'ADD_LARGER_STORAGE_MONTHLY':
-            return {
-                ...state,
-                addOnsMonthly: {
-                    largerStorage: true
-                }
-            }
-        case 'ADD_COSTOM_PROFILE_MONTHLY':
-            return {
-                ...state,
-                addOnsMonthly: {
-                    customizableProfile: true
-                }
-            }
         default: 
             return state;
     };

@@ -2,6 +2,7 @@ import Form from "./pages/Form";
 import styled from "styled-components";
 import { FormStepsProvider } from "./context/form-steps/FormStepsContext";
 import { FormInfoProvider } from "./context/form-info/FormInfoContext";
+import { AddonsProvider } from "./context/form-addons/AddonsContext";
 
 const Container = styled.div`
     min-width: 100vw;
@@ -15,7 +16,9 @@ function App() {
         <FormStepsProvider>
             <Container>
                 <FormInfoProvider>
-                    <Form />
+                    <AddonsProvider>
+                        <Form />
+                    </AddonsProvider>
                 </FormInfoProvider>
             </Container>
         </FormStepsProvider>
