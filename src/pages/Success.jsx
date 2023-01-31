@@ -63,7 +63,6 @@ export default function Success() {
                     variants={item}
                     initial="hidden"
                     animate="show"
-                    exit="hidden"
                     transition={{
                         delay: 0.2,
                     }}
