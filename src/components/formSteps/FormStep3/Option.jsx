@@ -22,6 +22,7 @@ const AddonOptionContainer = styled.div`
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1rem;
+    transition: all .2s ease-in-out;
 
     &:last-child {
         margin-bottom: 4rem;
@@ -47,6 +48,7 @@ const AddonCheckboxContainer = styled.div`
         transform: translateY(-0.075em);
         display: grid;
         place-content: center;
+        cursor: pointer;
 
         &::before {
             content: "";

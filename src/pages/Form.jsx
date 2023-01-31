@@ -6,7 +6,7 @@ import StepTracker from '../components/StepTracker.jsx';
 import FormStep1 from '../components/formSteps/FormStep1/FormStep1';
 import FormStep2 from '../components/formSteps/FormStep2/FormStep2';
 import FormStep3 from '../components/formSteps/FormStep3/FormStep3.jsx';
-import FormStep4 from '../components/formSteps/FormStep4';
+import FormStep4 from '../components/formSteps/FormStep4/FormStep4.jsx';
 import FormStepsContext from '../context/form-steps/FormStepsContext.jsx';
 import FormInfoContext from '../context/form-info/FormInfoContext.jsx';
 
@@ -73,6 +73,23 @@ const NextButton = styled.button`
     }
 `;
 
+const SubmitButton = styled.button`
+    border-radius: 8px;
+    background: ${ marine_blue };
+    color: ${ white };
+    padding: .8rem 2.5rem;
+    border: 1px solid ${ marine_blue };
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+        background: ${ purplish_blue };
+        border: 1px solid ${ purplish_blue };
+    }
+`;
+
 const PrevButton = styled.button`
     padding: .8rem 2.5rem;
     border-radius: 8px;
@@ -92,7 +109,7 @@ const PrevButton = styled.button`
 
 export default function Form() {
     const { step, dispatch } = useContext(FormStepsContext);
-    const { name } = useContext(FormInfoContext);
+    const { name, email } = useContext(FormInfoContext);
 
     function handleNextFormStep() {
         dispatch({ type: `STEP_${ step + 1 }` });
@@ -128,14 +145,24 @@ export default function Form() {
                         onClick={handleNextFormStep} 
                         style={{
                             display: step === 4 && 'none', 
-                            cursor: name === '' ? 'not-allowed' : 'pointer', 
-                            opacity: name === '' ? '0.5' : '1'
+                            cursor: name === '' || email === '' ? 'not-allowed' : 'pointer', 
+                            opacity: name === '' || email === '' ? '0.5' : '1'
                         }}
-                        disabled={ name === '' ? true : false }
-                        btnBgColorOnHover={ name === '' ? marine_blue : purplish_blue }
+                        btnBgColorOnHover={
+                            name === '' || email === '' ? marine_blue : purplish_blue
+                        }
+                        disabled={
+                            name === '' || email === '' ? true : false
+                        }
                     >
                         Next step
                     </NextButton>
+
+                    {step === 4 && (
+                        <SubmitButton type='buttom'>
+                            Submit
+                        </SubmitButton>
+                    )}
                 </ButtonsContainer>
             </FormSection>
         </Container>

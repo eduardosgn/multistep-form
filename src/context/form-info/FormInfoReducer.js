@@ -27,15 +27,15 @@ const infoReducer = (state, action) => {
                 ...state,
                 monthly: {
                     setMonthly: true,
-                    arc: true,
-                    adv: false,
-                    pro: false
+                    arcMon: true,
+                    advMon: false,
+                    proMon: false
                 },
                 yearly: {
                     setYearly: false,
-                    arc: false,
-                    adv: false,
-                    pro: false
+                    arcYr: false,
+                    advYr: false,
+                    proYr: false
                 }
             }
         case 'ADVANCED_MONTH':
@@ -43,15 +43,15 @@ const infoReducer = (state, action) => {
                 ...state,
                 monthly: {
                     setMonthly: true,
-                    arc: false,
-                    adv: true,
-                    pro: false
+                    arcMon: false,
+                    advMon: true,
+                    proMon: false
                 },
                 yearly: {
                     setYearly: false,
-                    arc: false,
-                    adv: false,
-                    pro: false
+                    arcYr: false,
+                    advYr: false,
+                    proYr: false
                 }
             }
         case 'PRO_MONTH':
@@ -59,15 +59,15 @@ const infoReducer = (state, action) => {
                 ...state,
                 monthly: {
                     setMonthly: true,
-                    arc: false,
-                    adv: false,
-                    pro: true
+                    arcMon: false,
+                    advMon: false,
+                    proMon: true
                 },
                 yearly: {
                     setYearly: false,
-                    arc: false,
-                    adv: false,
-                    pro: false
+                    arcYr: false,
+                    advYr: false,
+                    proYr: false
                 }
             }
         case 'ARCADE_YEAR':
@@ -75,15 +75,15 @@ const infoReducer = (state, action) => {
                 ...state,
                 yearly: {
                     setYearly: true,
-                    arc: true,
-                    adv: false,
-                    pro: false
+                    arcYr: true,
+                    advYr: false,
+                    proYr: false
                 },
                 monthly: {
                     setMonthly: false,
-                    arc: false,
-                    adv: false,
-                    pro: false
+                    arcMon: false,
+                    advMon: false,
+                    proMon: false
                 }
             }
         case 'ADVANCED_YEAR':
@@ -91,15 +91,15 @@ const infoReducer = (state, action) => {
                 ...state,
                 yearly: {
                     setYearly: true,
-                    arc: false,
-                    adv: true,
-                    pro: false
+                    arcYr: false,
+                    advYr: true,
+                    proYr: false
                 },
                 monthly: {
                     setMonthly: false,
-                    arc: false,
-                    adv: false,
-                    pro: false
+                    arcMon: false,
+                    advMon: false,
+                    proMon: false
                 }
             }
         case 'PRO_YEAR':
@@ -107,15 +107,15 @@ const infoReducer = (state, action) => {
                 ...state,
                 yearly: {
                     setYearly: true,
-                    arc: false,
-                    adv: false,
-                    pro: true
+                    arcYr: false,
+                    advYr: false,
+                    proYr: true
                 },
                 monthly: {
                     setMonthly: false,
-                    arc: false,
-                    adv: false,
-                    pro: false
+                    arcMon: false,
+                    advMon: false,
+                    proMon: false
                 }
             }
         default: 

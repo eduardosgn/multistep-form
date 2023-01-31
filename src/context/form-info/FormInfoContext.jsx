@@ -10,15 +10,15 @@ export const FormInfoProvider = ({ children }) => {
         phoneNumber: '',
         monthly: {
             setMonthly: true,
-            arc: false,
-            adv: false,
-            pro: false,
+            arcMon: false,
+            advMon: false,
+            proMon: false,
         },
         yearly: {
             setYearly: false,
-            arc: false,
-            adv: false,
-            pro: false
+            arcYr: false,
+            advYr: false,
+            proYr: false
         }
     };
 
