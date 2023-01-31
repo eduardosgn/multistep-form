@@ -49,12 +49,12 @@ const Container = styled.section`
 
 export default function FormStep4() {
     const addonsText = {
-        onlineServiceMon: 'Online service - monthly - $1/month',
-        largerStorageMon: 'Larger storage - monthly - $1/month',
-        customProfileMon: 'Custom profile - monthly - $2/month',
-        onlineServiceYr: 'Online service - yearly - $10/year',
-        largerStorageYr: 'Larger storage - yearly - $10/year',
-        customProfileYr: 'Custom profile - yearly - $20/year'
+        onlineServiceMon: 'Online service - $1/month',
+        largerStorageMon: 'Larger storage - $1/month',
+        customProfileMon: 'Custom profile - $2/month',
+        onlineServiceYr: 'Online service - $10/year',
+        largerStorageYr: 'Larger storage - $10/year',
+        customProfileYr: 'Custom profile - $20/year'
     };
 
     const { name, email, phoneNumber, monthly, yearly } = useContext(FormInfoContext);

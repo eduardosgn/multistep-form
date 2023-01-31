@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion as m } from 'framer-motion';
 import styled from 'styled-components';
 import * as pallete from '../components/style/StyledVars.js';
 import StepTracker from '../components/StepTracker.jsx';
@@ -9,6 +9,7 @@ import FormStep3 from '../components/formSteps/FormStep3/FormStep3.jsx';
 import FormStep4 from '../components/formSteps/FormStep4/FormStep4.jsx';
 import FormStepsContext from '../context/form-steps/FormStepsContext.jsx';
 import FormInfoContext from '../context/form-info/FormInfoContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const {
     marine_blue,
@@ -119,52 +120,68 @@ export default function Form() {
         dispatch({ type: `STEP_${ step - 1 }` });
     };
 
+    const navigate = useNavigate();
+
+    const container = {
+        hidden: { scale: 0.8, opacity: 0 },
+        show: { opacity: 1, scale: 1 },
+        transition: { type: "tween", duration: 2, ease: 'easeInOut' }
+    };
+
     return (
-        <Container>
-            <Section>
-                <StepTracker />
-            </Section>
+        <m.main
+            variants={container}
+            transition="transition"
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+        >
+            <Container>
+                <Section>
+                    <StepTracker />
+                </Section>
 
-            <FormSection>
-                <AnimatePresence initial={ false } mode={ 'wait' }>
-                    { step === 1 && <FormStep1 key={step} /> }
-                    { step === 2 && <FormStep2 key={step} /> }
-                    { step === 3 && <FormStep3 key={step} /> }
-                    { step === 4 && <FormStep4 key={step} /> }
-                </AnimatePresence>
+                <FormSection>
+                    <AnimatePresence initial={ false } mode={ 'wait' }>
+                        { step === 1 && <FormStep1 key={step} /> }
+                        { step === 2 && <FormStep2 key={step} /> }
+                        { step === 3 && <FormStep3 key={step} /> }
+                        { step === 4 && <FormStep4 key={step} /> }
+                    </AnimatePresence>
 
-                <ButtonsContainer>
-                    <PrevButton 
-                        onClick={handlePrevFormStep} 
-                        style={{ display: step === 1 && 'none' }}
-                    >
-                        Go back
-                    </PrevButton>
+                    <ButtonsContainer>
+                        <PrevButton 
+                            onClick={handlePrevFormStep} 
+                            style={{ display: step === 1 && 'none' }}
+                        >
+                            Go back
+                        </PrevButton>
 
-                    <NextButton 
-                        onClick={handleNextFormStep} 
-                        style={{
-                            display: step === 4 && 'none', 
-                            cursor: name === '' || email === '' ? 'not-allowed' : 'pointer', 
-                            opacity: name === '' || email === '' ? '0.5' : '1'
-                        }}
-                        btnBgColorOnHover={
-                            name === '' || email === '' ? marine_blue : purplish_blue
-                        }
-                        disabled={
-                            name === '' || email === '' ? true : false
-                        }
-                    >
-                        Next step
-                    </NextButton>
+                        <NextButton 
+                            onClick={handleNextFormStep} 
+                            style={{
+                                display: step === 4 && 'none', 
+                                cursor: name === '' || email === '' ? 'not-allowed' : 'pointer', 
+                                opacity: name === '' || email === '' ? '0.5' : '1'
+                            }}
+                            btnBgColorOnHover={
+                                name === '' || email === '' ? marine_blue : purplish_blue
+                            }
+                            disabled={
+                                name === '' || email === '' ? true : false
+                            }
+                        >
+                            Next step
+                        </NextButton>
 
-                    {step === 4 && (
-                        <SubmitButton type='buttom'>
-                            Submit
-                        </SubmitButton>
-                    )}
-                </ButtonsContainer>
-            </FormSection>
-        </Container>
+                        {step === 4 && (
+                            <SubmitButton type='buttom' onClick={() => navigate('/success')}>
+                                Submit
+                            </SubmitButton>
+                        )}
+                    </ButtonsContainer>
+                </FormSection>
+            </Container>
+        </m.main>
     );
 };
